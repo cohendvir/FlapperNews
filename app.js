@@ -1,13 +1,11 @@
 /**
  * Created by dvircohen on 12/30/15.
  */
-angular.module('flapperNews', []).controller('MainCtrl', ['$scope', function($scope) {
+var app = angular.module('flapperNews', []);
 
-    $scope.posts = [
-        { title: "dvir", upvotes: 5 },
-        { title: "noy", upvotes: 10 },
-        { title: "tamir", upvotes: 8 },
-    ];
+app.controller('MainCtrl', ['$scope', 'posts', function($scope, posts) {
+
+    $scope.posts = posts.posts;
 
     $scope.addPost = function() {
 

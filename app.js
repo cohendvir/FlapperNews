@@ -1,30 +1,16 @@
 /**
  * Created by dvircohen on 12/30/15.
  */
-var app = angular.module('flapperNews', []);
+var app = angular.module('flapperNews', ['ui.router']);
 
-app.controller('MainCtrl', ['$scope', 'posts', function($scope, posts) {
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
-    $scope.posts = posts.posts;
-
-    $scope.addPost = function() {
-
-        if (!$scope.title || $scope.title == '')
-            return false;
-
-        $scope.posts.push({
-            title: $scope.title,
-            link: $scope.link,
-            upvotes: 0
+    $stateProvider
+        .state('home', {
+            url: '/home',
+            templateUrl: '/home.html',
+            controller: 'MainCtrl'
         });
 
-        $scope.title = '';
-        $scope.link = '';
-
-    };
-
-    $scope.upvote = function(post) {
-        post.upvotes++;
-    };
-
+    $urlRouterProvider.otherwise('home');
 }]);

@@ -13,7 +13,11 @@ app.controller('MainCtrl', ['$scope', 'posts', function($scope, posts) {
         $scope.posts.push({
             title: $scope.title,
             link: $scope.link,
-            upvotes: 0
+            upvotes: 0,
+            comments: [
+                {author: "dvir cohen", body: "first comment", upvotes: 0},
+                {author: "noy shefer", body: "second comment", upvotes: 0}
+            ]
         });
 
         $scope.title = '';
@@ -21,7 +25,7 @@ app.controller('MainCtrl', ['$scope', 'posts', function($scope, posts) {
 
     };
 
-    $scope.upvote = function(post) {
+    $scope.upvotePost = function(post) {
         post.upvotes++;
     };
 }]);

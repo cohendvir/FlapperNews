@@ -1,0 +1,24 @@
+{
+  "name": "FlapperNews",
+  "homepage": "https://github.com/dvir28491/FlapperNews",
+  "authors": [
+    "Dvir Cohen <dvircohen100@gmail.com>"
+  ],
+  "description": "My first rails and angular app",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.6"
+  }
+}

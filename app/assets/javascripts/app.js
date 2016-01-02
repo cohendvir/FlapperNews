@@ -3,7 +3,8 @@
  */
 var app = angular.module('flapperNews', ['ui.router', 'templates']);
 
-app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+// @ngInject
+app.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('home', {
@@ -18,4 +19,4 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         });
 
     $urlRouterProvider.otherwise('home');
-}]);
+});

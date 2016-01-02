@@ -1,7 +1,8 @@
 /**
  * Created by dvircohen on 12/31/15.
  */
-app.controller('MainCtrl', ['$scope', 'posts', function($scope, posts) {
+// @ngInject
+app.controller('MainCtrl', function($scope, posts) {
 
     $scope.posts = posts.posts;
 
@@ -28,4 +29,4 @@ app.controller('MainCtrl', ['$scope', 'posts', function($scope, posts) {
     $scope.upvotePost = function(post) {
         post.upvotes++;
     };
-}]);
+});

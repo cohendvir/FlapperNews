@@ -1,7 +1,8 @@
 /**
  * Created by dvircohen on 12/31/15.
  */
-app.controller('PostsCtrl', ['$scope', '$stateParams', 'posts', function($scope, $stateParams, posts) {
+// @ngInject
+app.controller('PostsCtrl', function($scope, $stateParams, posts) {
     $scope.post = posts.posts[$stateParams.id];
 
     $scope.upvoteComment = function(comment) {
@@ -21,4 +22,4 @@ app.controller('PostsCtrl', ['$scope', '$stateParams', 'posts', function($scope,
         $scope.body = '';
     };
 
-}]);
+});

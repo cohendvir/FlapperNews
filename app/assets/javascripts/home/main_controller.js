@@ -11,14 +11,9 @@ app.controller('MainCtrl', function($scope, posts) {
         if (!$scope.title || $scope.title == '')
             return false;
 
-        $scope.posts.push({
+        posts.create({
             title: $scope.title,
-            link: $scope.link,
-            upvotes: 0,
-            comments: [
-                {author: "dvir cohen", body: "first comment", upvotes: 0},
-                {author: "noy shefer", body: "second comment", upvotes: 0}
-            ]
+            link: $scope.link
         });
 
         $scope.title = '';

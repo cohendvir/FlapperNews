@@ -29,6 +29,8 @@ GEM
       railties (>= 3.1)
       sprockets
       tilt
+    angular_rails_csrf (1.0.4)
+      rails (>= 3, < 5)
     arel (4.0.2)
     builder (3.1.4)
     erubis (2.7.0)
@@ -98,6 +100,7 @@ PLATFORMS
 
 DEPENDENCIES
   angular-rails-templates
+  angular_rails_csrf
   jbuilder (~> 1.2)
   ngannotate-rails
   rails (= 4.0.10)

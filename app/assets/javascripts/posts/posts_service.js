@@ -27,6 +27,12 @@ app.factory('posts', function($http, $filter) {
                 });
                 obj.posts.splice(index, 1);
             });
+        },
+
+        upvote: function(post) {
+            return $http.put('/posts/' + post.id + '/upvote').success(function(p) {
+               post.upvotes = p.upvotes;
+            });
         }
     };
 

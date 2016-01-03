@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def upvote
     @post.increment!(:upvotes)
-    respond_with @post
+    render json: @post
   end
 
   private

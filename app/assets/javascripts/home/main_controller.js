@@ -5,7 +5,6 @@
 app.controller('MainCtrl', function($scope, posts) {
 
     $scope.posts = posts.posts;
-
     $scope.addPost = function() {
 
         if (!$scope.title || $scope.title == '')
@@ -19,6 +18,10 @@ app.controller('MainCtrl', function($scope, posts) {
         $scope.title = '';
         $scope.link = '';
 
+    };
+
+    $scope.removePost = function(post) {
+        posts.remove(post);
     };
 
     $scope.upvotePost = function(post) {

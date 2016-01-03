@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :find_post, only: [:show, :upvote]
+  before_action :find_post, only: [:show, :upvote, :destroy]
 
   def index
     respond_with Post.all
@@ -14,6 +14,11 @@ class PostsController < ApplicationController
     respond_with @post
   end
 
+  def destroy
+    @post.destroy
+    render nothing: true, status: :ok
+  end
+
   def upvote
     @post.increment!(:upvotes)
     respond_with @post
@@ -22,7 +27,7 @@ class PostsController < ApplicationController
   private
 
   def find_post
-    Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def post_params

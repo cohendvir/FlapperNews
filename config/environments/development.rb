@@ -33,4 +33,7 @@ FlapperNews::Application.configure do
   # ng-annotate
   config.ng_annotate.process = true
 
+  # devise
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
 end

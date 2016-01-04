@@ -8,9 +8,9 @@ class CommentsController < ApplicationController
   end
 
   def upvote
-    comment = @post.comment.find(params[:id])
+    comment = @post.comments.find(params[:id])
     comment.increment!(:upvotes)
-    respond_with @post, comment
+    render json: comment
   end
 
   private

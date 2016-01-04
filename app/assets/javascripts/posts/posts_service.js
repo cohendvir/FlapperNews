@@ -35,6 +35,12 @@ app.factory('posts', function($http, $filter) {
             });
         },
 
+        upvoteComment: function(post, comment){
+            return $http.put('/posts/' + post.id + '/comments/' + comment.id + '/upvote').success(function(data) {
+               comment.upvotes = data.upvotes;
+            });
+        },
+
         addComment: function(post, comment) {
             return $http.post('/posts/' + post.id + '/comments', comment).success(function(data) {
                 post.comments.push(data);

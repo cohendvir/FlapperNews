@@ -7,7 +7,7 @@ app.controller('PostsCtrl', function($scope, posts, post) {
     $scope.post = post;
 
     $scope.upvoteComment = function(comment) {
-        comment.upvotes++;
+        posts.upvoteComment($scope.post, comment);
     };
 
     $scope.addComment = function() {

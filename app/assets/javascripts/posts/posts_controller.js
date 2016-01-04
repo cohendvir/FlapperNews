@@ -2,16 +2,16 @@
  * Created by dvircohen on 12/31/15.
  */
 // @ngInject
-app.controller('PostsCtrl', function($scope, posts, post) {
+app.controller('PostsCtrl', function($scope, posts, comments, post) {
 
     $scope.post = post;
 
     $scope.removeComment = function(comment) {
-        posts.removeComment($scope.post, comment);
+        comments.removeComment($scope.post, comment);
     };
 
     $scope.upvoteComment = function(comment) {
-        posts.upvoteComment($scope.post, comment);
+        comments.upvoteComment($scope.post, comment);
     };
 
     $scope.addComment = function() {
@@ -23,7 +23,7 @@ app.controller('PostsCtrl', function($scope, posts, post) {
             body: $scope.body
         };
 
-        posts.addComment($scope.post, comment);
+        comments.addComment($scope.post, comment);
 
         $scope.body = '';
     };

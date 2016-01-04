@@ -2,8 +2,9 @@
  * Created by dvircohen on 12/31/15.
  */
 // @ngInject
-app.controller('PostsCtrl', function($scope, $stateParams, posts) {
-    $scope.post = posts.posts[$stateParams.id];
+app.controller('PostsCtrl', function($scope, posts, post) {
+
+    $scope.post = post;
 
     $scope.upvoteComment = function(comment) {
         comment.upvotes++;
@@ -13,11 +14,12 @@ app.controller('PostsCtrl', function($scope, $stateParams, posts) {
         if (!$scope.body || $scope.body == '')
             return;
 
-        $scope.post.comments.push({
+        var comment = {
             author: 'user',
-            body: $scope.body,
-            upvotes: 0
-        });
+            body: $scope.body
+        };
+
+        posts.addComment($scope.post, comment);
 
         $scope.body = '';
     };

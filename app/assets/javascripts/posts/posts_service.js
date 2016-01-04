@@ -9,13 +9,13 @@ app.factory('posts', function($http, $filter) {
         posts: [],
 
         getAll: function() {
-            return $http.get('/posts.json').success(function(data) {
+            return $http.get('/posts').success(function(data) {
                angular.copy(data, obj.posts);
             });
         },
 
         create: function(post) {
-            return $http.post('/posts.json', post).success(function(post) {
+            return $http.post('/posts', post).success(function(post) {
                obj.posts.push(post);
             });
         },
@@ -32,6 +32,18 @@ app.factory('posts', function($http, $filter) {
         upvote: function(post) {
             return $http.put('/posts/' + post.id + '/upvote').success(function(p) {
                post.upvotes = p.upvotes;
+            });
+        },
+
+        addComment: function(post, comment) {
+            return $http.post('/posts/' + post.id + '/comments', comment).success(function(data) {
+                post.comments.push(data);
+            });
+        },
+
+        getById: function(postId) {
+            return $http.get('/posts/' + postId).then(function(res) {
+                return res.data;
             });
         }
     };

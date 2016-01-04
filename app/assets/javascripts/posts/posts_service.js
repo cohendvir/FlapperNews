@@ -35,6 +35,11 @@ app.factory('posts', function($http, $filter) {
             });
         },
 
+        downvote: function(post) {
+            return $http.put('/posts/' + post.id + '/downvote').success(function(p) {
+                post.downvotes = p.downvotes;
+            });
+        },
 
         getById: function(postId) {
             return $http.get('/posts/' + postId).then(function(res) {

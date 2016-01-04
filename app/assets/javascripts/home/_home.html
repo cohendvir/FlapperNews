@@ -7,6 +7,7 @@
         <div class="col-md-2">
             <span class="glyphicon glyphicon-remove" ng-click="removePost(post)"></span>
             <span style="color: forestgreen" class="glyphicon glyphicon-thumbs-up" ng-click="upvotePost(post)">{{post.upvotes}}</span>
+            <span style="color: darkred" class="glyphicon glyphicon-thumbs-down" ng-click="downvotePost(post)">{{post.downvotes}}</span>
         </div>
         <div class="col-md-10">
             <a href="{{post.link}}" ng-show="post.link">{{post.title}}</a>

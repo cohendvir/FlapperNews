@@ -61,6 +61,9 @@ FlapperNews::Application.routes.draw do
       put '/upvote' => 'comments#upvote', on: :member
     end
 
-      put '/upvote' => 'posts#upvote', on: :member
+    member do
+      put '/downvote' => 'posts#downvote'
+      put '/upvote'   => 'posts#upvote'
+    end
   end
 end

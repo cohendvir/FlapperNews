@@ -27,4 +27,8 @@ app.controller('MainCtrl', function($scope, posts) {
     $scope.upvotePost = function(post) {
         posts.upvote(post);
     };
+
+    $scope.downvotePost = function(post) {
+        posts.downvote(post);
+    };
 });

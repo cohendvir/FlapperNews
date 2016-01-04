@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
-  before_action :find_post, only: [:show, :upvote, :destroy]
+  before_action :find_post
+  skip_before_action :find_post, only: [:index, :create]
 
   def index
     respond_with Post.all
@@ -21,6 +22,11 @@ class PostsController < ApplicationController
 
   def upvote
     @post.increment!(:upvotes)
+    render json: @post
+  end
+
+  def downvote
+    @post.increment!(:downvotes)
     render json: @post
   end
 

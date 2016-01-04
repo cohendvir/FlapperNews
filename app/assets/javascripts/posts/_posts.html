@@ -20,6 +20,7 @@
 </div>
 
 <div ng-repeat="comment in post.comments | orderBy: '-upvotes'">
+    <span class="glyphicon glyphicon-remove" ng-click="removeComment(comment)"></span>
     <span class="glyphicon glyphicon-thumbs-up" ng-click="upvoteComment(comment)"></span>
     ({{comment.upvotes}} upvotes) - By {{comment.author}}
             <span style="font-size:20px; margin-left:10px;">

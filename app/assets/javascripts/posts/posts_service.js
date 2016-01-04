@@ -35,6 +35,13 @@ app.factory('posts', function($http, $filter) {
             });
         },
 
+
+        getById: function(postId) {
+            return $http.get('/posts/' + postId).then(function(res) {
+                return res.data;
+            });
+        },
+
         upvoteComment: function(post, comment){
             return $http.put('/posts/' + post.id + '/comments/' + comment.id + '/upvote').success(function(data) {
                comment.upvotes = data.upvotes;
@@ -47,9 +54,12 @@ app.factory('posts', function($http, $filter) {
             });
         },
 
-        getById: function(postId) {
-            return $http.get('/posts/' + postId).then(function(res) {
-                return res.data;
+        removeComment: function(post, comment) {
+            return $http.delete('/posts/' + post.id + '/comments/' + comment.id).success(function() {
+                var index = _.findIndex(post.comments, function(c) {
+                    return c.id == comment.id;
+                });
+                post.comments.splice(index, 1);
             });
         }
     };

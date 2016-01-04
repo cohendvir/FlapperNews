@@ -6,6 +6,10 @@ app.controller('PostsCtrl', function($scope, posts, post) {
 
     $scope.post = post;
 
+    $scope.removeComment = function(comment) {
+        posts.removeComment($scope.post, comment);
+    };
+
     $scope.upvoteComment = function(comment) {
         posts.upvoteComment($scope.post, comment);
     };

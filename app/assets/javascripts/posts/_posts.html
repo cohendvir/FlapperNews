@@ -19,6 +19,10 @@
     </h3>
 </div>
 
+<div ng-show="post.comments.length == 0">
+    <span class="small">No comments</span>
+</div>
+
 <div ng-repeat="comment in post.comments | orderBy: '-upvotes'">
     <span class="glyphicon glyphicon-remove" ng-click="removeComment(comment)"></span>
     <span class="glyphicon glyphicon-thumbs-up" ng-click="upvoteComment(comment)"></span>

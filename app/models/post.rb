@@ -1,7 +1,13 @@
-class Post < ActiveRecord::Base
-  has_many :comments
+class Post
+  include Mongoid::Document
+  embeds_many :comments
 
-  def as_json(options={})
-    super(options.merge(include: :comments))
+  field :title, type: :string
+  field :link, type: :string
+  field :upvotes, type: :integer, default: 0
+  field :downvotes, type: :integer, default: 0
+
+  after_initialize do
+      self[:comments] ||= []
   end
 end

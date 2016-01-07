@@ -33,4 +33,8 @@ FlapperNews::Application.configure do
   # ng-annotate
   config.ng_annotate.process = true
 
+  config.generators do |g|
+    g.orm :mongoid
+  end
+
 end

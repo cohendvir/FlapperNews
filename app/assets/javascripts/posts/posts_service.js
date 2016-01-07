@@ -3,7 +3,7 @@
  * Created by dvircohen on 12/31/15.
  */
 
-app.factory('posts', function($http, $filter) {
+app.factory('posts', function($http) {
     var obj = {
 
         posts: [],

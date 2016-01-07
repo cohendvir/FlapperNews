@@ -21,12 +21,12 @@ class PostsController < ApplicationController
   end
 
   def upvote
-    @post.increment!(:upvotes)
+    @post.inc(upvotes: 1)
     render json: @post
   end
 
   def downvote
-    @post.increment!(:downvotes)
+    @post.inc(downvotes: 1)
     render json: @post
   end
 

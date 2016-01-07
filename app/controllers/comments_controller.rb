@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   end
 
   def upvote
-    @comment.increment!(:upvotes)
+    @comment.inc(upvotes: 1)
     render json: @comment
   end
 
@@ -30,6 +30,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:author, :body)
   end
 end
